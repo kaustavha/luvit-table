@@ -80,6 +80,10 @@ function contains(f, t)
   return false
 end
 
+local function includes(value, data)
+  return contains(function(v) return value==v end, data)
+end
+
 function deepCopy(orig)
   local orig_type = type(orig)
   local copy
@@ -156,6 +160,7 @@ exports.table.tablePrint = tablePrint
 exports.table.toString = toString
 exports.table.merge = merge
 exports.table.contains = contains
+exports.table.includes = includes
 exports.table.deepCopy = deepCopy
 exports.table.valueToStr = valueToStr
 exports.table.keyToStr = keyToStr
